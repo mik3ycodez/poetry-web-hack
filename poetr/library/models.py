@@ -7,16 +7,19 @@ class Genre(models.Model):
     def __str__(self):
         return self.genre_title
 
+
 # a model representing a poem within the application
 class Poem(models.Model):
-    poem_timestamp = models.DateTimeField(auto_now_add=True)
-    poem_title = models.CharField(max_length=48, help_text="enter poem title")
-    poem_text = models.CharField(max_length=280, help_text="enter poem text")
-    poetry_genres = models.ManyToManyField('Genre', blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    title = models.CharField(max_length=48, help_text="enter poem title")
+    text = models.CharField(max_length=280, help_text="enter poem text")
+    author = models.CharField(max_length=48, help_text="enter author")
+    genres = models.ManyToManyField('Genre', blank=True)
     links = models.ManyToManyField('self', blank=True)
 
     def __str__(self):
-        return self.poem_title
+        return self.title
+
 
 # a model representing a report from the user
 class Report(models.Model):
