@@ -1,6 +1,6 @@
 from django.urls import path
-from . import views
+from .views import Page
 
 urlpatterns = [
-
+    path('<int:pk>/', Page.as_view(), name="Page")
 ]
