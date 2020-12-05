@@ -1,1 +1,8 @@
-.DS_Store
+DS_Store
+=======
+
+.idea/vcs.xml
+.idea/poetry-web-hack.iml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/misc.xml
+.idea/modules.xml
