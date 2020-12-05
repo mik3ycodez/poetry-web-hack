@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% block title %}<title>Poetr</title>{% endblock %}
+<!--  {% block title %}<title>Poetr</title>{% endblock %} -->
+  <title>Poetr</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <!-- Add additional CSS in static file -->
-  {% load static %}
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<!--  {% load static %} -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <div class="content-wrapper">
-
   <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-2">
-      </div>
-      <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
+    <div class="row justify-content-sm-center">
+<!--        <div class="col-sm-2"></div> -->
+<!--        <div class="col-sm-10 ">{% block content %}{% endblock %}</div> -->
+<!--	<img src="images/logo.jpg" class="rounded mx-auto d-block" alt="Poetr" style="width: 200px; height: 200px;"> -->
+	<img src="images/logo.jpg" class="img-fluid" alt="Poetr" style="width: 200px; height: 200px;">
+    </div>
+    <div class="row justify-content-sm-center">
+	<h1>Poetr</h1>
+    </div>
+    <div class="row justify-content-sm-center">
+	<p>Lorem ipsum poem text</p>
+	<button id="reportButton" onclick="">Report Poem</button>
+    </div>
+    <div class="row justify-content-sm-center">
+	<button id="nextButton" onclick="">Find Another Poem</button>
+	<button id="nextButton" onclick="">Find Another Poem</button>
+    </div>
+    <div class="row justify-content-sm-center">
+	<button id="addPoemButton" onclick="">Add Your Own Poem</button>
+    </div>
+    <div class="row justify-content-sm-center">
+	<footer>
+	<a class="attribution"  href="https://www.freepik.com/vectors/background">Background vector created by rawpixel.com - www.freepik.com</a>
+	</footer>
     </div>
   </div>
-
-  </div> <!-- End content-wrapper  -->
 </body>
 </html>
