@@ -7,6 +7,7 @@ class Genre(models.Model):
     def __str__(self):
         return self.genre_title
 
+
 # a model representing a poem within the application
 class Poem(models.Model):
     poem_timestamp = models.DateTimeField(auto_now_add=True)
