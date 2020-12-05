@@ -1,6 +1,12 @@
 from django.db import models
 
 
+class Genre(models.Model):
+    genre_title = models.CharField(max_length=18)
+
+    def __str__(self):
+        return self.genre_title
+
 # a model representing a poem within the application
 class Poem(models.Model):
     poem_timestamp = models.DateTimeField(auto_now_add=True)
@@ -9,6 +15,11 @@ class Poem(models.Model):
 
     def __str__(self):
         return self.poem_title
+
+
+class Link(models.Model):
+    left_link = models.ForeignKey('poem', on_delete=models.CASCADE)
+    right_link = models.ForeignKey('poem', on_delete=models.CASCADE)
 
 
 # a model representing a report from the user
