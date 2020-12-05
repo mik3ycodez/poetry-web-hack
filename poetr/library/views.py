@@ -13,7 +13,7 @@ def Random(request):
 
 class Page(DetailView):
     model = Poem
-    template_name = 'library/poem_detail.html'
+    template_name = 'library/index.html'
 
     def get_context_data(self, **kwargs):
         poem = super().get_context_data(**kwargs)['object']
