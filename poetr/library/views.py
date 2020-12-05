@@ -9,7 +9,7 @@ class Page(DetailView):
 
     def get_context_data(self, **kwargs):
         poem = super().get_context_data(**kwargs)['object']
-        context = {"title": poem.title,
+        context = {'title': poem.title,
                    'author': poem.author,
                    'timestamp': poem.timestamp,
                    'genres': poem.genres,
