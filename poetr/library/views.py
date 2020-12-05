@@ -26,12 +26,17 @@ class Page(DetailView):
 
         return context
 
+
 def NewPoem(request, pk):
     poem = get_object_or_404(Poem, pk=pk)
 
     if request.method == "POST":
         form = NewPoemForm(request.POST)
 
+        if form.is_valid():
+            data = form.clean_genres()
+
+    return render(request, 'library/newPoem.html', context)
 
 #class ReportSubmit()
 # Create your views here.
