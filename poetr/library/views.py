@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.detail import DetailView
 from .models import Genre, Poem
-from .forms import NewPoemForm
+from .forms import NewPoemForm, ReportForm
 import random
 r = random.Random()
 
@@ -26,11 +26,14 @@ class Page(DetailView):
 
         return context
 
-def NewPoem(request, pk):
-    poem = get_object_or_404(Poem, pk=pk)
+    def NewPoem(request, pk):
+        poem = get_object_or_404(Poem, pk=pk)
 
-    if request.method == "POST":
-        form = NewPoemForm(request.POST)
+        if request.method == "POST":
+            form = NewPoemForm(request.POST)
+
+    def ReportPoem(request, pk):
+        form = ReportForm(request.POST)
 
 
 # Create your views here.
