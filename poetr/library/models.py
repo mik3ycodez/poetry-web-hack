@@ -14,16 +14,10 @@ class Poem(models.Model):
     poem_title = models.CharField(max_length=48, help_text="enter poem title")
     poem_text = models.CharField(max_length=280, help_text="enter poem text")
     poetry_genres = models.ManyToManyField('Genre', blank=True)
-    left_link = models.OneToOneField('Link')
+    links = models.ManyToManyField('self', blank=True)
 
     def __str__(self):
         return self.poem_title
-
-
-class Link(models.Model):
-    left_link = models.ForeignKey('poem', on_delete=models.CASCADE)
-    right_link = models.ForeignKey('poem', on_delete=models.CASCADE)
-
 
 # a model representing a report from the user
 class Report(models.Model):
