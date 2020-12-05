@@ -2,10 +2,10 @@ from django.db import models
 
 
 class Genre(models.Model):
-    genre_title = models.CharField(max_length=18)
+    genre = models.CharField(max_length=18)
 
     def __str__(self):
-        return self.genre_title
+        return self.genre
 
 
 # a model representing a poem within the application

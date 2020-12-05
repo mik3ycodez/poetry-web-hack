@@ -2,8 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.detail import DetailView
 from .models import Genre, Poem
 from .forms import NewPoemForm
-import random
-r = random.Random()
 
 
 def Random(request):
@@ -28,13 +26,41 @@ class Page(DetailView):
 
 
 def NewPoem(request, pk):
-    poem = get_object_or_404(Poem, pk=pk)
+    OldPoem = get_object_or_404(Poem, pk=pk)
 
     if request.method == "POST":
         form = NewPoemForm(request.POST)
 
         if form.is_valid():
-            data = form.clean_genres()
+            genres_text = form.clean_genres()
+            genres = []
+            for text in genres_text:
+                genres.append(Genre.objects.get_or_create(genre='genre'))
+
+            poem = Poem(title=form.cleaned_data['title'],
+                        text=form.cleaned_data['text'],
+                        author=form.cleaned_data['author'],
+                        )
+            poem.genres.add(*genres)
+
+            OldLinks = OldPoem.links.all()
+
+            OldPoem.links.add(poem)
+            OldPoem.links.add(OldLinks[1])
+            OldPoem.save()
+
+            poem.links.add(OldLinks[0])
+            poem.links.add(Poem.objects.order_by('?'[:1][0]))
+            poem.save()
+
+            return redirect(poem)
+
+        else:
+            form = NewPoemForm()
+
+        context = {
+            'form': form,
+        }
 
     return render(request, 'library/newPoem.html', context)
 
