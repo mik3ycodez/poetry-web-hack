@@ -33,5 +33,4 @@ def NewPoem(request, pk):
         form = NewPoemForm(request.POST)
 
 
-#class ReportSubmit()
 # Create your views here.
