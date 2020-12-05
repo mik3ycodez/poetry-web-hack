@@ -8,7 +8,6 @@ class Genre(models.Model):
         return self.genre_title
 
 # a model representing a poem within the application
-
 class Poem(models.Model):
     poem_timestamp = models.DateTimeField(auto_now_add=True)
     poem_title = models.CharField(max_length=48, help_text="enter poem title")
