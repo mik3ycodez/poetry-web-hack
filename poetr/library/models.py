@@ -26,8 +26,13 @@ class Poem(models.Model):
 
 # a model representing a report from the user
 class Report(models.Model):
-    report_timestamp = models.DateTimeField(auto_now_add=True)
-    report_text = models.CharField(max_length=400, help_text="describe why you are reporting this poem")
+    timestamp = models.DateTimeField(auto_now_add=True)
+    text = models.CharField(max_length=400, help_text="describe why you are reporting this poem")
+    poem = models.OneToOneField(
+        Poem,
+        on_delete=models.CASCADE,
+        primary_key=True,
+    )
 
     REPORT_TYPE_CHOICES = [
         # use 4 letter keys
@@ -36,14 +41,8 @@ class Report(models.Model):
         ('cprt', 'COPYRIGHT'),
         # and more
     ]
-    report_type = models.CharField(
+    type = models.CharField(
         max_length=4,
         choices=REPORT_TYPE_CHOICES,
         default='cprt',
-    )
-
-    report_poem = models.OneToOneField(
-        Poem,
-        on_delete=models.CASCADE,
-        primary_key=True,
     )
