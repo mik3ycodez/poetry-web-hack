@@ -20,6 +20,9 @@ class Poem(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return '%i/' % self.pk
+
 
 # a model representing a report from the user
 class Report(models.Model):
