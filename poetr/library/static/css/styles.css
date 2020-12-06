@@ -68,7 +68,19 @@ img {
    text-align: center;
    word-wrap: break-word;
 }
-
+#id_title {
+    width: 300px;
+}
+#id_text {
+    width: 300px;
+    height: 200px;
+}
+#id_author {
+    width: 300px;
+}
+#id_genres {
+    width: 300px;
+}
 .reportP {
    background-color: #e8e8e8;
    width: 300px;

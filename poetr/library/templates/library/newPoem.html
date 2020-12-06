@@ -20,11 +20,24 @@
     </div>
     <div><p></p></div>
     <div class="row justify-content-center">
-        <form action="" method="post" class="report dropdown">
+        <form action="" method="post" class="report dropdown" style="display: inline;">
                 {% csrf_token %}
-                <table>
-                        {{ form.as_table }}
-                </table>
+          <div>{{form.title.label_tag}}</div>
+
+          <div>{{form.title}}</div>
+
+          <div>{{form.text.label_tag}}</div>
+
+          <div>{{form.text}}</div>
+
+          <div>{{form.author.label_tag}}</div>
+
+          <div>{{form.author}}</div>
+
+          <div>{{form.genres.label_tag}}</div>
+
+          <div>{{form.genres}}</div>
+
         </form>
     </div>
     <div class="row justify-content-center">
