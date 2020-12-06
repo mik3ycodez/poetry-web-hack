@@ -15,7 +15,8 @@ class Poem(models.Model):
     text = models.CharField(max_length=280, help_text="enter poem text")
     author = models.CharField(max_length=48, help_text="enter author")
     genres = models.ManyToManyField('Genre', blank=True)
-    links = models.ManyToManyField('self', blank=True)
+    leftLink = models.ForeignKey('self', related_name="left_links", on_delete=models.CASCADE, blank=True, null=True)
+    rightLink = models.ForeignKey('self', related_name="right_links", on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.title

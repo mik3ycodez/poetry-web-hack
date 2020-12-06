@@ -20,7 +20,9 @@ class Page(DetailView):
                    'timestamp': poem.timestamp,
                    'genres': poem.genres.all(),
                    'text': poem.text,
-                   'links': poem.links.all()}
+                   'leftLink': poem.leftLink,
+                   'rightLink': poem.rightLink,
+                   }
 
         return context
 
@@ -64,5 +66,4 @@ def NewPoem(request, pk):
 
     return render(request, 'library/newPoem.html', context)
 
-#class ReportSubmit()
 # Create your views here.

@@ -14,7 +14,6 @@ class NewPoemForm(forms.Form):
 
 
 class ReportForm(forms.Form):
-    timestamp = forms.DateTimeField(auto_now_add=True)
     text = forms.CharField(max_length=400, help_text="describe why you are reporting this poem")
     poem = None  # how to add poem model to form?
 
@@ -25,8 +24,6 @@ class ReportForm(forms.Form):
         ('cprt', 'COPYRIGHT'),
         # and more
     ]
-    type = forms.CharField(
-        max_length=4,
+    type = forms.ChoiceField(
         choices=REPORT_TYPE_CHOICES,
-        default='cprt',
     )
