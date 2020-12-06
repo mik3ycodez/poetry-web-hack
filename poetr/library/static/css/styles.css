@@ -1,10 +1,22 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
 
+<<<<<<< HEAD
+.btn.btn-success {
+  align-items: center;
+  justify-content: center;
+}
 
 .attribution {
    size: 8px;
    color: dimgray;
 }
 
+=======
+>>>>>>> f9dbccdfdd79fccbc2dfa95978f0770981f412ba
 .custom-btn-danger-xs {
    padding: 1px 5px;
    font-size: 12px;
@@ -15,9 +27,14 @@
 }
 
 footer {
+   align-items: center;
+   justify-content: center;
    font-style: italic;
    size: 8px;
    color: dimgray;
+   position: fixed;
+   white-space: nowrap;
+   margin-top: auto
 }
 
 img {
