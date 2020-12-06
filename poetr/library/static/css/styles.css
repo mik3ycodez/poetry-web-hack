@@ -21,6 +21,11 @@ h1,h4,p,button,tr {
    color: #eee;
 }
 
+div {
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+
 input {
    border: 1px solid #2e6da4;
    border-radius: 10px;
@@ -36,12 +41,10 @@ input {
 }
 
 footer {
-   align-items: center;
-   /*justify-content: center;*/
+   text-align: center;
    font-style: italic;
    size: 8px;
    color: dimgray;
-   position: fixed;
    white-space: nowrap;
    margin-top: auto
 }
@@ -70,7 +73,7 @@ img {
 }
 
 .reportP {
-   background-color: #e8e8e8;
+   background-color: #333;
    width: 300px;
    text-align: center;
    padding: 10px;
