@@ -44,6 +44,7 @@ def NewPoem(request, pk):
                         author=form.cleaned_data['author'],
                         )
             poem.save()
+            print("id is: " + str(poem.id))
 
             for genre in genres:
                 poem.genres.add(genre)
