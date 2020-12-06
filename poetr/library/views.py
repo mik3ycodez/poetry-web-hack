@@ -34,7 +34,6 @@ def NewPoem(request, pk):
 
     if request.method == "POST":
         form = NewPoemForm(request.POST)
-
         if form.is_valid():
             genres_text = form.clean_genres()
             genres = []
@@ -49,6 +48,7 @@ def NewPoem(request, pk):
             poem.save()
             for genre in genres:
                 poem.genres.add(genre)
+                genre.poems.add(poem)
 
             oldLeftLink = OldPoem.leftLink
 
@@ -58,28 +58,20 @@ def NewPoem(request, pk):
             poem.leftLink = oldLeftLink
             poem.rightLink = Poem.objects.order_by('?')[:1][0]
             poem.save()
+
             try:
-                poemGenres = poem.genres.all()
-                genreOptions = []
-                for opt in poemGenres:
-                    genreOptions.append(opt[0])
-                genreChoice = r.choice(genreOptions)
-                genrePoems = genreChoice.poems.all()
-                if len(genrePoems) == 1 or r.randint(0,9) > 7:
-                    poem.rightLink = Poem.objects.order_by('?')[:1][0]
-                    while poem.rightLink.pk == poem.pk:
-                        poem.rightLink = Poem.objects.order_by('?')[:1][0]
-                else:
-                    poemOptions = []
-                    for opt in genrePoems:
-                        poemOptions.append(opt[0])
-                    poem.rightLink = r.choice(poemOptions)
-                    while poem.rightLink.pk == poem.pk:
-                        poem.rightLink = r.choid(poemOptions)
-                poem.save()
+                poemGenre = r.choice(poem.genres.all())
+                poemChoice = r.choice(poemGenre.poems.all())
+                if r.randint(0, 10) < 7:
+                    poem.rightLink = poemChoice
+                    poem.save()
             except Exception as e:
                 pass
 
+            while poem.rightLink.pk == poem.pk:
+                print("Poem picked itself")
+                poem.rightLink = Poem.objects.order_by('?')[:1][0]
+                poem.save()
 
             return redirect(poem)
 
