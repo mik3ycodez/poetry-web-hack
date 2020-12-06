@@ -38,10 +38,7 @@
 	</p>
     </div>
     <div class="row justify-content-center">
-        <p>Tags: {% for genre in genres %}
-        {{genre}}
-        {% endfor %}
-        </p>
+        <p>Tags: {{ genres|join:', '}}</p>
     </div>
     <div class="row justify-content-center">
 	<p>
