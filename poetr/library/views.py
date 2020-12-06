@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.detail import DetailView
 from .models import Genre, Poem, Report
 from .forms import NewPoemForm, ReportForm
-import uuid
+import random
+r = random.Random()
 
 
 def Random(request):
@@ -56,8 +57,29 @@ def NewPoem(request, pk):
 
             poem.leftLink = oldLeftLink
             poem.rightLink = Poem.objects.order_by('?')[:1][0]
-
             poem.save()
+            try:
+                poemGenres = poem.genres.all()
+                genreOptions = []
+                for opt in poemGenres:
+                    genreOptions.append(opt[0])
+                genreChoice = r.choice(genreOptions)
+                genrePoems = genreChoice.poems.all()
+                if len(genrePoems) == 1 or r.randint(0,9) > 7:
+                    poem.rightLink = Poem.objects.order_by('?')[:1][0]
+                    while poem.rightLink.pk == poem.pk:
+                        poem.rightLink = Poem.objects.order_by('?')[:1][0]
+                else:
+                    poemOptions = []
+                    for opt in genrePoems:
+                        poemOptions.append(opt[0])
+                    poem.rightLink = r.choice(poemOptions)
+                    while poem.rightLink.pk == poem.pk:
+                        poem.rightLink = r.choid(poemOptions)
+                poem.save()
+            except Exception as e:
+                pass
+
 
             return redirect(poem)
 
@@ -72,26 +94,26 @@ def NewPoem(request, pk):
 
 
 def NewReport(request, pk):
-    OldReport = get_object_or_404(Report, pk=pk)
+    poem = get_object_or_404(Poem, pk=pk)
 
     if request.method == "POST":
         form = ReportForm(request.POST)
 
         if form.is_valid():
-            report = Report(
-                text=form.cleaned_data['title'],
+            report = Report.objects.create(
+                text=form.cleaned_data['text'],
                 type=form.cleaned_data['type'],
-                poem=None  # TODO: pass poem into new report
+                poem=poem
             )
 
             report.save()
             return redirect(report)
 
     else:
-        form = NewPoemForm()
+        form = ReportForm()
 
     context = {
         'form': form,
     }
 
-    return render(request, 'library/newReport.html', context)
+    return render(request, 'library/report.html', context)
