@@ -37,27 +37,26 @@ def NewPoem(request, pk):
         if form.is_valid():
             genres_text = form.clean_genres()
             genres = []
-            for text in genres_text:
-                genres.append(Genre.objects.get_or_create(genre='genre')[0])
+            for text in genres_text.split(", "):
+                genre = Genre.objects.get_or_create(title="%s" % text)[0]
+                genres.append(genre)
 
             poem = Poem.objects.create(title=form.cleaned_data['title'],
                                        text=form.cleaned_data['text'],
                                        author=form.cleaned_data['author'],
                                        )
             poem.save()
-
             for genre in genres:
                 poem.genres.add(genre)
 
             oldLeftLink = OldPoem.leftLink
-            oldRightLink = OldPoem.rightLink
 
             OldPoem.leftLink = poem
-            OldPoem.rightLink = oldRightLink
             OldPoem.save()
 
             poem.leftLink = oldLeftLink
-            poem.leftLink = Poem.objects.order_by('?')[:1][0]
+            poem.rightLink = Poem.objects.order_by('?')[:1][0]
+
             poem.save()
 
             return redirect(poem)
