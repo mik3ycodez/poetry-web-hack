@@ -9,11 +9,6 @@ body {
   justify-content: center;
 }
 
-.attribution {
-   size: 8px;
-   color: dimgray;
-}
-
 .report.dropdown {
  display: flex;
 }
