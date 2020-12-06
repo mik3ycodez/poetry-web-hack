@@ -1,4 +1,12 @@
 
+body {
+   background-color: #111;
+}
+
+h1,h4,p,button {
+   color: #fff;
+}
+
 .custom-btn-danger-xs {
    padding: 1px 5px;
    font-size: 12px;
@@ -19,8 +27,22 @@ img {
    height: 200px;
 }
 
+.btn.btn-primary {
+   background-color: #52aadd;
+}
+
+.btn.btn-success {
+   background-color: #408F4E;
+}
+
+.btn.btn-danger {
+   background-color: #4D4D4D;
+}
+
 .poemText {
    width: 300px;
+   text-align: center;
+   word-wrap: break-word;
 }
 
 .reportP {
