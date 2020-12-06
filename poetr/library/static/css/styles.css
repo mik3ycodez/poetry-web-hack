@@ -11,6 +11,8 @@ body {
 
 .report.dropdown {
  display: flex;
+   display: inline;
+   color: #eee;
 }
 
 body {
@@ -39,6 +41,10 @@ label {
 input {
    border: 1px solid #2e6da4;
    border-radius: 10px;
+}
+
+textarea {
+   height: 100px;
 }
 
 .custom-btn-danger-xs {
@@ -77,24 +83,24 @@ img {
 }
 
 .poemText {
-   width: 300px;
+   max-width: 300px;
    text-align: center;
    word-wrap: break-word;
 }
 #id_title {
-    width: 300px;
+    max-width: 300px;
 }
 #id_text {
-    width: 300px;
+    max-width: 300px;
     height: 100px;
     border: 1px solid #2e6da4;
     border-radius: 10px;
 }
 #id_author {
-    width: 300px;
+    max-width: 300px;
 }
 #id_genres {
-    width: 300px;
+    max-width: 300px;
 }
 
 #id_type_label {
@@ -112,7 +118,7 @@ img {
 }
 .reportP {
    background-color: #333;
-   width: 300px;
+   max-width: 300px;
    text-align: center;
    padding: 10px;
    border: 2px solid #eee;
