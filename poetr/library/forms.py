@@ -14,8 +14,6 @@ class NewPoemForm(forms.Form):
 
 
 class ReportForm(forms.Form):
-    text = forms.CharField(max_length=400, help_text="describe why you are reporting this poem")
-    poem = None  # how to add poem model to form?
 
     REPORT_TYPE_CHOICES = [
         # use 4 letter keys
@@ -27,3 +25,4 @@ class ReportForm(forms.Form):
     type = forms.ChoiceField(
         choices=REPORT_TYPE_CHOICES,
     )
+    text = forms.CharField(max_length=400, help_text="describe why you are reporting this poem")
