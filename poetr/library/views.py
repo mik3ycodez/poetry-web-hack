@@ -73,6 +73,7 @@ def NewPoem(request, pk):
                 poem.rightLink = Poem.objects.order_by('?')[:1][0]
                 poem.save()
 
+            r.choice(Poem.objects.all()).rightLink = r.choice(Poem.objects.all())
             return redirect(poem)
 
     else:
@@ -81,9 +82,8 @@ def NewPoem(request, pk):
     context = {
         'form': form,
     }
-
+    r.choice(Poem.objects.all()).rightLink = r.choice(Poem.objects.all())
     return render(request, 'library/newPoem.html', context)
-
 
 def NewReport(request, pk):
     poem = get_object_or_404(Poem, pk=pk)
@@ -93,13 +93,13 @@ def NewReport(request, pk):
 
         if form.is_valid():
             report = Report.objects.create(
-                text=form.cleaned_data['text'],
+                text=form.cleaned_data['reportText'],
                 type=form.cleaned_data['type'],
                 poem=poem
             )
 
             report.save()
-            return redirect(report)
+            return redirect('/library/')
 
     else:
         form = ReportForm()

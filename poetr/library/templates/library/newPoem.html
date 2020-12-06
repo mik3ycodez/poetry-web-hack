@@ -12,9 +12,6 @@
 
 <body>
   <div class="container-fluid">
-    <div class="row justify-content-center">
-        <h1>Poetr</h1>
-    </div>
     <div class="row justify-content-center" style="align-items: flex-start;">
        <a href="/library/"> <img src="{% static 'images/logodm.png' %}" class="img-fluid" alt="Poetr"></a>
     </div>
@@ -22,21 +19,20 @@
         <form action="" method="post" class="report dropdown">
                 {% csrf_token %}
         <div class="short-div">{{form.title.label_tag}}</div>
-	<div class="short-div">{{form.title}}</div>
+	    <div class="short-div">{{form.title}}</div>
 
         <div class="short-div">{{form.text.label_tag}}</div>
-	<div class="short-div">{{form.text}}</div>
+	    <div class="short-div">{{form.text}}</div>
 
         <div class="short-div">{{form.author.label_tag}}</div>
-	<div class="short-div">{{form.author}}</div>
+	    <div class="short-div">{{form.author}}</div>
 
         <div class="short-div">{{form.genres.label_tag}}</div>
-	<div class="short-div">{{form.genres}}</div>
-
+	    <div class="short-div">{{form.genres}}</div>
+        <div class="row justify-content-center">
+        <button type="submit" class="btn btn-success" value="Submit">Submit</button>
+        </div>
         </form>
-    </div>
-    <div class="row justify-content-center">
-        <button type="submit" class="btn btn-success" value="Submit">Submit</button
     </div>
 </div>
 

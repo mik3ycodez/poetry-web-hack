@@ -12,9 +12,6 @@
 </head>
 <body>
   <div class="container-fluid">
-    <div class="row justify-content-center">
-        <h1>Poetr</h1>
-    </div>
     <div class="row justify-content-center" style="align-items: flex-start;">
 	<a href="/library/"><img src="{% static 'images/logodm.png' %}" class="img-fluid" alt="Poetr"></a>
     </div>
@@ -28,11 +25,10 @@
         <div>{{form.type}}</div>
         <div>{{form.reportText.label_tag}}</div>
         <div>{{form.reportText}}</div>
-
+        <div class="row justify-content-center">
+	        <button type="submit" class="btn btn-success" value="Submit">Submit</button>
+        </div>
 	</form>
-    </div>
-    <div class="row justify-content-center">
-	<button type="submit" class="btn btn-success" value="Submit">Submit</button
     </div>
     <div class="row justify-content-center">
     </div>

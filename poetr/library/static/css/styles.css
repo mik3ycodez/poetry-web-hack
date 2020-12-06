@@ -10,9 +10,8 @@ body {
 }
 
 .report.dropdown {
- display: flex;
-   display: inline;
-   color: #eee;
+  display: inline;
+  color: #eee;
 }
 
 body {
@@ -45,6 +44,7 @@ input {
 
 textarea {
    height: 100px;
+   max-width: 300px;
 }
 
 .custom-btn-danger-xs {
@@ -85,8 +85,11 @@ img {
 .poemText {
    max-width: 300px;
    text-align: center;
+   display: inline-block;
    word-wrap: break-word;
-}
+   white-space: normal;
+ }
+
 #id_title {
     max-width: 300px;
 }
