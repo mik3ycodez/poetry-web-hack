@@ -1,4 +1,13 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
 
+.btn.btn-success {
+  align-items: center;
+  justify-content: center;
+}
 
 .attribution {
    size: 8px;
@@ -15,9 +24,14 @@
 }
 
 footer {
+   align-items: center;
+   justify-content: center;
    font-style: italic;
    size: 8px;
    color: dimgray;
+   position: fixed;
+   white-space: nowrap;
+   margin-top: auto
 }
 
 img {
