@@ -30,34 +30,20 @@
 	<h1>Poetr</h1>
     </div>
     <div class="row justify-content-center">
-	<p>{{title}}</p>
+	<p class="reportP">All reports will be reviewed and investigated by our team. For additional information, please refer to our policies.</p>
     </div>
     <div class="row justify-content-center">
-        <p>{{author}}</p>
+	<form action="" method="post">
+    		{% csrf_token %}
+		<table>
+    			{{ form.as_table }}
+		</table>	
+		<button type="submit" class="btn btn-success" value="Submit">Submit</button
+	</form>
     </div>
     <div class="row justify-content-center">
-	<p class="poemText">{{text}}</p>
     </div>
     <div class="row justify-content-center">
-	<p>
-	<a class="btn btn-primary" href="" role="button">Find Another Poem</a>
-	<a class="btn btn-primary" href="" role="button">Find Another Poem</a>
-	</p>
-    </div>
-    <div class="row justify-content-center">
-	<p>
-	<a class="btn btn-success" href="new" role="button">Add Your Own Poem</a>
-	</p>
-    </div>
-    <div class="row justify-content-center">
-	<p>
-	<a class="btn btn-danger custom-btn-danger-xs" href="report" role="button">Report Poem</a>
-	</p>
-    </div>
-    <div class="row justify-content-center">
-	<p>
-	<a class="attribution"  href="https://www.freepik.com/vectors/background">Background vector created by rawpixel.com - www.freepik.com</a>
-	</p>
     </div>
     <div class="row justify-content-center">
 	<footer>
