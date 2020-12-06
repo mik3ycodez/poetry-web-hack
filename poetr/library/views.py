@@ -58,17 +58,6 @@ def NewPoem(request, pk):
             poem.leftLink = oldLeftLink
             poem.rightLink = Poem.objects.order_by('?')[:1][0]
             poem.save()
-            genreOptions = poem.genres.all()
-            if r.randint(0,10) < 7 and len(genreOptions) > 1:
-                poem.rightLink = r.choice(genreOptions)[0]
-                poem.save()
-            while poem.rightLink.pk == poem.pk:
-                poem.rightLink = Poem.objects.order_by('?')[:1][0]
-                poem.save()
-                genreOptions = poem.genres.all()
-                if r.randint(0, 10) < 7 and len(genreOptions) > 1:
-                    poem.rightLink = r.choice(genreOptions)[0]
-                    poem.save()
 
             return redirect(poem)
 
