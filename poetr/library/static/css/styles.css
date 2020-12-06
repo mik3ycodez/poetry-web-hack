@@ -84,6 +84,7 @@ img {
 .poemText {
    max-width: 300px;
    text-align: center;
+   display: inline-block;
    word-wrap: break-word;
 }
 #id_title {
