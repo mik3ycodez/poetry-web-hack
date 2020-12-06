@@ -92,7 +92,7 @@ def NewReport(request, pk):
 
         if form.is_valid():
             report = Report.objects.create(
-                text=form.cleaned_data['text'],
+                text=form.cleaned_data['reportText'],
                 type=form.cleaned_data['type'],
                 poem=poem
             )
