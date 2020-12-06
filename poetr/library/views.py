@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.detail import DetailView
-from .models import Genre, Poem
-from .forms import NewPoemForm
+from .models import Genre, Poem, Report
+from .forms import NewPoemForm, ReportForm
 import uuid
 
 
@@ -21,8 +21,8 @@ class Page(DetailView):
                    'timestamp': poem.timestamp,
                    'genres': poem.genres.all(),
                    'text': poem.text,
-                   'leftLink': poem.leftLink,
-                   'rightLink': poem.rightLink,
+                   'leftLink': poem.leftLink.get_absolute_url(),
+                   'rightLink': poem.rightLink.get_absolute_url(),
                    }
 
         return context
@@ -37,27 +37,26 @@ def NewPoem(request, pk):
         if form.is_valid():
             genres_text = form.clean_genres()
             genres = []
-            for text in genres_text:
-                genres.append(Genre.objects.get_or_create(genre='genre')[0])
+            for text in genres_text.split(", "):
+                genre = Genre.objects.get_or_create(title="%s" % text)[0]
+                genres.append(genre)
 
             poem = Poem.objects.create(title=form.cleaned_data['title'],
                                        text=form.cleaned_data['text'],
                                        author=form.cleaned_data['author'],
                                        )
             poem.save()
-
             for genre in genres:
                 poem.genres.add(genre)
 
             oldLeftLink = OldPoem.leftLink
-            oldRightLink = OldPoem.rightLink
 
             OldPoem.leftLink = poem
-            OldPoem.rightLink = oldRightLink
             OldPoem.save()
 
             poem.leftLink = oldLeftLink
-            poem.leftLink = Poem.objects.order_by('?')[:1][0]
+            poem.rightLink = Poem.objects.order_by('?')[:1][0]
+
             poem.save()
 
             return redirect(poem)
@@ -71,4 +70,28 @@ def NewPoem(request, pk):
 
     return render(request, 'library/newPoem.html', context)
 
-# Create your views here.
+
+def NewReport(request, pk):
+    OldReport = get_object_or_404(Report, pk=pk)
+
+    if request.method == "POST":
+        form = ReportForm(request.POST)
+
+        if form.is_valid():
+            report = Report(
+                text=form.cleaned_data['title'],
+                type=form.cleaned_data['type'],
+                poem=None  # TODO: pass poem into new report
+            )
+
+            report.save()
+            return redirect(report)
+
+    else:
+        form = NewPoemForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'library/newReport.html', context)
