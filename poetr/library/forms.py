@@ -10,4 +10,20 @@ class NewPoemForm(forms.Form):
 
     def clean_genres(self):
         data = self.cleaned_data['genres']
-        return data.replace(' ', '').split(',')
+        return data
+
+
+class ReportForm(forms.Form):
+    text = forms.CharField(max_length=400, help_text="describe why you are reporting this poem")
+    poem = None  # how to add poem model to form?
+
+    REPORT_TYPE_CHOICES = [
+        # use 4 letter keys
+        ('nsfw', 'NSFW'),
+        ('hrmt', 'HARASSMENT'),
+        ('cprt', 'COPYRIGHT'),
+        # and more
+    ]
+    type = forms.ChoiceField(
+        choices=REPORT_TYPE_CHOICES,
+    )
