@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '=r6o79im5n+5t0nkx*)zfl807bd*0sa0tvgyy)a3bpx=uh1@%b'
+SECRET_KEY = 'fakesecretforgithub'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -103,7 +103,7 @@ else:
             'PORT': '3306',
             'NAME': 'poetry',
             'USER': 'poetr',
-            'PASSWORD': '[PASSWORD}',
+            'PASSWORD': '[PASSWORD]',
         }
     }
 # [END db_setup]
