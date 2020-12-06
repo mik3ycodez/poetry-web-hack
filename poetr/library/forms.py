@@ -25,4 +25,4 @@ class ReportForm(forms.Form):
     type = forms.ChoiceField(
         choices=REPORT_TYPE_CHOICES,
     )
-    text = forms.CharField(widget=forms.Textarea, max_length=400, help_text="describe why you are reporting this poem")
+    reportText = forms.CharField(widget=forms.Textarea, max_length=400, help_text="describe why you are reporting this poem")
