@@ -21,8 +21,8 @@ class Page(DetailView):
                    'timestamp': poem.timestamp,
                    'genres': poem.genres.all(),
                    'text': poem.text,
-                   'leftLink': poem.leftLink,
-                   'rightLink': poem.rightLink,
+                   'leftLink': poem.leftLink.get_absolute_url(),
+                   'rightLink': poem.rightLink.get_absolute_url(),
                    }
 
         return context
