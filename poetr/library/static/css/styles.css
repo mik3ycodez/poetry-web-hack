@@ -10,9 +10,8 @@ body {
 }
 
 .report.dropdown {
- display: flex;
-   display: inline;
-   color: #eee;
+  display: inline;
+  color: #eee;
 }
 
 body {

@@ -22,21 +22,21 @@
         <form action="" method="post" class="report dropdown">
                 {% csrf_token %}
         <div class="short-div">{{form.title.label_tag}}</div>
-	<div class="short-div">{{form.title}}</div>
+	    <div class="short-div">{{form.title}}</div>
 
         <div class="short-div">{{form.text.label_tag}}</div>
-	<div class="short-div">{{form.text}}</div>
+	    <div class="short-div">{{form.text}}</div>
 
         <div class="short-div">{{form.author.label_tag}}</div>
-	<div class="short-div">{{form.author}}</div>
+	    <div class="short-div">{{form.author}}</div>
 
         <div class="short-div">{{form.genres.label_tag}}</div>
-	<div class="short-div">{{form.genres}}</div>
+	    <div class="short-div">{{form.genres}}</div>
 
         </form>
     </div>
     <div class="row justify-content-center">
-        <button type="submit" class="btn btn-success" value="Submit">Submit</button
+        <button type="submit" class="btn btn-success" value="Submit">Submit</button>
     </div>
 </div>
 
