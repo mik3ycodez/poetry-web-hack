@@ -15,17 +15,13 @@
   <div class="container-fluid">
     <div class="row">
 
-      <form>
-      <ul class="flex-outer">
-      <input type="title" placeholder="title">
-	<br></br>
-      <input type="tags" placeholder="tags">
-	<br></br>
-      <textarea rows="6" id="message" placeholder="there is no beginning that is a blank page"></textarea>
-	<br></br>
-      <button type="submit">submit</button>
-      </ul>
-      </form>
+    <form action="" method="post">
+      {% csrf_token %}
+      <table>
+      {{ form.as_table }}
+      </table>
+      <input type="submit" value="Submit">
+    </form>
 
 
     </div>
