@@ -34,7 +34,6 @@ def NewPoem(request, pk):
 
     if request.method == "POST":
         form = NewPoemForm(request.POST)
-
         if form.is_valid():
             genres_text = form.clean_genres()
             genres = []
@@ -49,6 +48,7 @@ def NewPoem(request, pk):
             poem.save()
             for genre in genres:
                 poem.genres.add(genre)
+                genre.poems.add(poem)
 
             oldLeftLink = OldPoem.leftLink
 
@@ -60,8 +60,8 @@ def NewPoem(request, pk):
             poem.save()
 
             try:
-                poemGenre = r.choice(Poem.genres.all())[0]
-                poemChoice = r.choice(poemGenre.poems.all())[0]
+                poemGenre = r.choice(poem.genres.all())
+                poemChoice = r.choice(poemGenre.poems.all())
                 if r.randint(0, 10) < 7:
                     poem.rightLink = poemChoice
                     poem.save()
@@ -69,6 +69,7 @@ def NewPoem(request, pk):
                 pass
 
             while poem.rightLink.pk == poem.pk:
+                print("Poem picked itself")
                 poem.rightLink = Poem.objects.order_by('?')[:1][0]
                 poem.save()
 

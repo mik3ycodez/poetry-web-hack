@@ -6,25 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <!-- Add additional CSS in static file -->
-
-<!-- Uncomment for production -->
    {% load static %}
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
-<!-- Uncomment for testing
-  <link rel="stylesheet" href="/Users/mik3y/Documents/queerhack/poetry-web-hack/poetr/library/static/css/styles.css"> -->
-
 </head>
 <body>
   <div class="container-fluid">
     <div class="row justify-content-center" style="align-items: flex-start;">
-
-<!-- Uncomment for production -->
 	<img src="{% static 'images/logo.png' %}" class="img-fluid" alt="Poetr"> 
-
-<!-- Uncomment for testing 
-	<img src="/Users/mik3y/Documents/queerhack/poetry-web-hack/poetr/library/static/images/logo.png" class="img-fluid" alt="Poetr"> -->
-
     </div>
     <div class="row justify-content-center">
 	<h1>Poetr</h1>
@@ -46,8 +34,8 @@
     </div>
     <div class="row justify-content-center">
 	<p>
-	<a class="btn btn-primary" href="{{leftLink}}" role="button">Go deeper</a>
-	<a class="btn btn-primary" href="{{rightLink}}" role="button">Go right</a>
+	<a class="btn btn-primary" href="{{leftLink}}" role="button">Similar Similes</a>
+	<a class="btn btn-primary" href="{{rightLink}}" role="button">Random Rhymes</a>
 	</p>
     </div>
     <div class="row justify-content-center">
@@ -61,10 +49,7 @@
 	</p>
     </div>
     <div class="row justify-content-center">
-	<footer>
-		Copyright Alice, Mike, Nico, Jett 2020
-	</footer>
+	<footer>Copyright Alice, Mike, Nico, Jett 2020</footer>
     </div>
-  </div>
 </body>
 </html>
