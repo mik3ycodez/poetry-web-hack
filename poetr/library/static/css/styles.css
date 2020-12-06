@@ -86,13 +86,33 @@ img {
 }
 #id_text {
     width: 300px;
+<<<<<<< HEAD
     height: 100px;
+=======
+    height: 200px;
+    border: 1px solid #2e6da4;
+    border-radius: 10px;
+>>>>>>> 0c865b911dbfaa7ccd939407faf8ed888749bafc
 }
 #id_author {
     width: 300px;
 }
 #id_genres {
     width: 300px;
+}
+
+#id_type_label {
+    color: #eee;
+}
+
+#id_type {
+    border: 1px solid #2e6da4;
+    border-radius: 5px;
+}
+
+#id_reportText {
+    border: 1px solid #2e6da4;
+    border-radius: 10px;
 }
 .reportP {
    background-color: #333;
