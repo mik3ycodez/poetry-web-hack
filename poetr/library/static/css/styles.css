@@ -17,13 +17,23 @@ body {
    background-color: #111;
 }
 
-h1,h4,p,button,tr {
+h1,h4,p,button,tr,label {
    color: #eee;
 }
 
 div {
    margin-top: 10px;
    margin-bottom: 10px;
+}
+
+.short-div {
+   margin-top: 0px;
+   margin-bottom: 0px;
+}
+
+label {
+   margin-top: 10px;
+   margin-bottom: 0px;
 }
 
 input {
@@ -76,7 +86,7 @@ img {
 }
 #id_text {
     width: 300px;
-    height: 200px;
+    height: 100px;
 }
 #id_author {
     width: 300px;

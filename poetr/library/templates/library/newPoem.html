@@ -16,26 +16,22 @@
         <h1>Poetr</h1>
     </div>
     <div class="row justify-content-center" style="align-items: flex-start;">
-        <img src="{% static 'images/logodm.png' %}" class="img-fluid" alt="Poetr">
+       <a href="/library/"> <img src="{% static 'images/logodm.png' %}" class="img-fluid" alt="Poetr"></a>
     </div>
     <div class="row justify-content-center">
         <form action="" method="post" class="report dropdown" style="display: inline;">
                 {% csrf_token %}
-          <div>{{form.title.label_tag}}</div>
+        <div class="short-div">{{form.title.label_tag}}</div>
+	<div class="short-div">{{form.title}}</div>
 
-          <div>{{form.title}}</div>
+        <div class="short-div">{{form.text.label_tag}}</div>
+	<div class="short-div">{{form.text}}</div>
 
-          <div>{{form.text.label_tag}}</div>
+        <div class="short-div">{{form.author.label_tag}}</div>
+	<div class="short-div">{{form.author}}</div>
 
-          <div>{{form.text}}</div>
-
-          <div>{{form.author.label_tag}}</div>
-
-          <div>{{form.author}}</div>
-
-          <div>{{form.genres.label_tag}}</div>
-
-          <div>{{form.genres}}</div>
+        <div class="short-div">{{form.genres.label_tag}}</div>
+	<div class="short-div">{{form.genres}}</div>
 
         </form>
     </div>
