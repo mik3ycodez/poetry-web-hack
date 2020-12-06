@@ -86,13 +86,9 @@ img {
 }
 #id_text {
     width: 300px;
-<<<<<<< HEAD
     height: 100px;
-=======
-    height: 200px;
     border: 1px solid #2e6da4;
     border-radius: 10px;
->>>>>>> 0c865b911dbfaa7ccd939407faf8ed888749bafc
 }
 #id_author {
     width: 300px;
@@ -119,6 +115,6 @@ img {
    width: 300px;
    text-align: center;
    padding: 10px;
-   border: 1px solid #2e6da4;
+   border: 2px solid #eee;
    border-radius: 10px;
 }
