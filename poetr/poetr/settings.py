@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -75,6 +76,9 @@ WSGI_APPLICATION = 'poetr.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 # [START db_setup]
+import pymysql  # noqa: 402
+pymysql.version_info = (1, 4, 6, 'final', 0)  # change mysqlclient version
+pymysql.install_as_MySQLdb()
 if os.getenv('GAE_APPLICATION', None):
     # Running on production App Engine, so connect to Google Cloud SQL using
     # the unix socket at /cloudsql/<your-cloudsql-connection string>
@@ -83,7 +87,7 @@ if os.getenv('GAE_APPLICATION', None):
             'ENGINE': 'django.db.backends.mysql',
             'HOST': '/cloudsql/poetry-hack-django:us-central1:poetr-sql',
             'USER': 'poetr',
-            'PASSWORD': '[YOUR-PASSWORD]',
+            'PASSWORD': '[PASSWORD]',
             'NAME': 'poetry',
         }
     }
@@ -99,7 +103,7 @@ else:
             'PORT': '3306',
             'NAME': 'poetry',
             'USER': 'poetr',
-            'PASSWORD': '[YOUR-PASSWORD]',
+            'PASSWORD': '[PASSWORD}',
         }
     }
 # [END db_setup]
@@ -142,3 +146,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
