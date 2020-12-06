@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.detail import DetailView
 from .models import Genre, Poem
 from .forms import NewPoemForm
+import uuid
 
 
 def Random(request):
@@ -37,26 +38,26 @@ def NewPoem(request, pk):
             genres_text = form.clean_genres()
             genres = []
             for text in genres_text:
-                genres.append(Genre.objects.get_or_create(genre='genre'))
+                genres.append(Genre.objects.get_or_create(genre='genre')[0])
 
-            poem = Poem(title=form.cleaned_data['title'],
-                        text=form.cleaned_data['text'],
-                        author=form.cleaned_data['author'],
-                        )
+            poem = Poem.objects.create(title=form.cleaned_data['title'],
+                                       text=form.cleaned_data['text'],
+                                       author=form.cleaned_data['author'],
+                                       )
             poem.save()
-            print("id is: " + str(poem.id))
 
             for genre in genres:
                 poem.genres.add(genre)
 
-            OldLinks = OldPoem.links.all()
+            oldLeftLink = OldPoem.leftLink
+            oldRightLink = OldPoem.rightLink
 
-            OldPoem.links.add(poem)
-            OldPoem.links.add(OldLinks[1])
+            OldPoem.leftLink = poem
+            OldPoem.rightLink = oldRightLink
             OldPoem.save()
 
-            poem.links.add(OldLinks[0])
-            poem.links.add(Poem.objects.order_by('?'[:1][0]))
+            poem.leftLink = oldLeftLink
+            poem.leftLink = Poem.objects.order_by('?')[:1][0]
             poem.save()
 
             return redirect(poem)

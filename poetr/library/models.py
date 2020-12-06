@@ -1,4 +1,6 @@
 from django.db import models
+import uuid
+
 
 
 class Genre(models.Model):
@@ -11,6 +13,7 @@ class Genre(models.Model):
 # a model representing a poem within the application
 class Poem(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=48, help_text="enter poem title")
     text = models.CharField(max_length=280, help_text="enter poem text")
     author = models.CharField(max_length=48, help_text="enter author")
@@ -22,7 +25,7 @@ class Poem(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return '%i/' % self.pk
+        return '/library/%i/' % self.pk
 
 
 # a model representing a report from the user
