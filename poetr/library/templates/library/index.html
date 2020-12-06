@@ -30,10 +30,16 @@
 	<h1>Poetr</h1>
     </div>
     <div class="row justify-content-center">
-	<p>{{title}}</p>
+	<h4>{{title}}</h4>
     </div>
     <div class="row justify-content-center">
-        <p>{{author}}</p>
+        <p>By: {{author}}</p>
+    </div>
+    <div class="row justify-content-center">
+	<p>Tags: {% for genre in genres %}
+	{{genre}}
+	{% endfor %}
+	</p>
     </div>
     <div class="row justify-content-center">
 	<p class="poemText">{{text}}</p>
