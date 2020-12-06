@@ -17,8 +17,13 @@ body {
    background-color: #111;
 }
 
-h1,h4,p,button {
-   color: #fff;
+h1,h4,p,button,tr {
+   color: #eee;
+}
+
+input {
+   border: 1px solid #2e6da4;
+   border-radius: 10px;
 }
 
 .custom-btn-danger-xs {
@@ -32,7 +37,7 @@ h1,h4,p,button {
 
 footer {
    align-items: center;
-   justify-content: center;
+   /*justify-content: center;*/
    font-style: italic;
    size: 8px;
    color: dimgray;
