@@ -4,7 +4,6 @@ body {
     flex-direction: column;
 }
 
-<<<<<<< HEAD
 .btn.btn-success {
   align-items: center;
   justify-content: center;
@@ -15,8 +14,10 @@ body {
    color: dimgray;
 }
 
-=======
->>>>>>> f9dbccdfdd79fccbc2dfa95978f0770981f412ba
+.report.dropdown {
+ display: flex;
+}
+
 .custom-btn-danger-xs {
    padding: 1px 5px;
    font-size: 12px;

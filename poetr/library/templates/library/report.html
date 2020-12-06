@@ -22,7 +22,7 @@
 	<p class="reportP">All reports will be reviewed and investigated by our team. For additional information, please refer to our policies.</p>
     </div>
     <div class="row justify-content-center">
-	<form action="" method="post">
+	<form action="" method="post" class="report dropdown">
     		{% csrf_token %}
 		<table>
     			{{ form.as_table }}
@@ -30,7 +30,6 @@
 	</form>
     </div>
     <div class="row justify-content-center">
-<<<<<<< HEAD
 	<button type="submit" class="btn btn-success" value="Submit">Submit</button
     </div>
     <div class="row justify-content-center">
@@ -42,12 +41,6 @@
   <p>&copy; 2020 Copyright Alice, Mike, Nico, Jett</p>
   </ul>
   </footer>
-   
-  
-=======
-	<footer> Copyright Alice, Mike, Nico, Jett 2020 </footer>
-    </div>
-  </div>
->>>>>>> f9dbccdfdd79fccbc2dfa95978f0770981f412ba
+
 </body>
 </html>
