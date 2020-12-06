@@ -4,10 +4,10 @@ import uuid
 
 
 class Genre(models.Model):
-    genre = models.CharField(max_length=18)
+    title = models.CharField(max_length=18)
 
     def __str__(self):
-        return self.genre
+        return self.title
 
 
 # a model representing a poem within the application
