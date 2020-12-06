@@ -73,6 +73,7 @@ def NewPoem(request, pk):
                 poem.rightLink = Poem.objects.order_by('?')[:1][0]
                 poem.save()
 
+            r.choice(Poem.objects.all()).rightLink = r.choice(Poem.objects.all())
             return redirect(poem)
 
     else:
@@ -81,7 +82,7 @@ def NewPoem(request, pk):
     context = {
         'form': form,
     }
-
+    r.choice(Poem.objects.all()).rightLink = r.choice(Poem.objects.all())
     return render(request, 'library/newPoem.html', context)
 
 def NewReport(request, pk):
