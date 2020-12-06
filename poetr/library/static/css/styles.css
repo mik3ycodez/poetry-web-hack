@@ -28,3 +28,12 @@ img {
 .poemText {
    width: 300px;
 }
+
+.reportP {
+   background-color: #e8e8e8;
+   width: 300px;
+   text-align: center;
+   padding: 10px;
+   border: 1px solid #2e6da4;
+   border-radius: 10px;
+}
