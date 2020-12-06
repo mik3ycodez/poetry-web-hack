@@ -84,7 +84,6 @@ def NewPoem(request, pk):
 
     return render(request, 'library/newPoem.html', context)
 
-
 def NewReport(request, pk):
     poem = get_object_or_404(Poem, pk=pk)
 
@@ -99,7 +98,7 @@ def NewReport(request, pk):
             )
 
             report.save()
-            return redirect(report)
+            return redirect('/library/')
 
     else:
         form = ReportForm()
