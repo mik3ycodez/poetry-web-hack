@@ -53,12 +53,7 @@ def NewPoem(request, pk):
             oldRightLink = OldPoem.rightLink
 
             OldPoem.leftLink = poem
-            OldPoem.rightLink = oldRightLink
-            OldPoem.save()
-
-            poem.leftLink = oldLeftLink
-            poem.leftLink = Poem.objects.order_by('?')[:1][0]
-            poem.save()
+            OldPoem.
 
             return redirect(poem)
 
