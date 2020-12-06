@@ -22,11 +22,13 @@
 	<p class="reportP">All reports will be reviewed and investigated by our team. For additional information, please refer to our policies.</p>
     </div>
     <div class="row justify-content-center">
-	<form action="" method="post" class="report dropdown">
+	<form action="" method="post" class="report dropdown" style="display: inline; color: #eee;">
     		{% csrf_token %}
-		<table>
-    			{{ form.as_table }}
-		</table>	
+        <div>{{form.type.label_tag}}</div>
+        <div>{{form.type}}</div>
+        <div>{{form.text.label_tag}}</div>
+        <div>{{form.text}}</div>
+
 	</form>
     </div>
     <div class="row justify-content-center">
