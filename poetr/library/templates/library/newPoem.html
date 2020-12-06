@@ -23,17 +23,11 @@
      </div>
 
     <div class="row justify-content-center">
-      <form>
-      <ul class="flex-outer">
-      <input type="title" placeholder="title">
-	<br></br>
-      <input type="tags" placeholder="tags">
-	<br></br>
-      <textarea rows="6" id="message" placeholder="there is no beginning that is a blank page"></textarea>
-	<br></br>
-      <button type="submit">submit</button>
-      </ul>
-      </form>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Submit">
+    </form>
     </div>
 
   </div>
