@@ -11,22 +11,36 @@
 </head>
 
 <body>
-  <div class="content-wrapper">
   <div class="container-fluid">
-    <div class="row">
-
-    <form action="" method="post">
-      {% csrf_token %}
-      <table>
-      {{ form.as_table }}
-      </table>
-      <input type="submit" value="Submit">
-    </form>
-
-
+    <div class="row justify-content-center">
+        <h1>Poetr</h1>
     </div>
-  </div>
-  </div> <!-- End content-wrapper  -->
+    <div class="row justify-content-center" style="align-items: flex-start;">
+       <a href="/library/"> <img src="{% static 'images/logodm.png' %}" class="img-fluid" alt="Poetr"></a>
+    </div>
+    <div class="row justify-content-center">
+        <form action="" method="post" class="report dropdown" style="display: inline; color: #eee;">
+                {% csrf_token %}
+        <div class="short-div">{{form.title.label_tag}}</div>
+	<div class="short-div">{{form.title}}</div>
+
+        <div class="short-div">{{form.text.label_tag}}</div>
+	<div class="short-div">{{form.text}}</div>
+
+        <div class="short-div">{{form.author.label_tag}}</div>
+	<div class="short-div">{{form.author}}</div>
+
+        <div class="short-div">{{form.genres.label_tag}}</div>
+	<div class="short-div">{{form.genres}}</div>
+
+        </form>
+    </div>
+    <div class="row justify-content-center">
+        <button type="submit" class="btn btn-success" value="Submit">Submit</button
+    </div>
+</div>
+
+  <footer>&copy; 2020 Copyright Alice, Mike, Nico, Jett </footer>
 </body>
 
 </html>

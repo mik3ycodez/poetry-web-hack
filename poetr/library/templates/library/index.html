@@ -11,11 +11,11 @@
 </head>
 <body>
   <div class="container-fluid">
-    <div class="row justify-content-center" style="align-items: flex-start;">
-	<img src="{% static 'images/logo.png' %}" class="img-fluid" alt="Poetr"> 
-    </div>
     <div class="row justify-content-center">
-	<h1>Poetr</h1>
+        <h1>Poetr</h1>
+    </div>
+    <div class="row justify-content-center" style="align-items: flex-start;"> 
+	<a href="/library/"> <img src="{% static 'images/logodm.png' %}" class="img-fluid" alt="Poetr"></a>
     </div>
     <div class="row justify-content-center">
 	<h4>{{title}}</h4>
@@ -24,13 +24,7 @@
         <p>By: {{author}}</p>
     </div>
     <div class="row justify-content-center">
-	<p>Tags: {% for genre in genres %}
-	{{genre}}
-	{% endfor %}
-	</p>
-    </div>
-    <div class="row justify-content-center">
-	<p class="poemText">{{text}}</p>
+        <p class="poemText">{{text}}</p>
     </div>
     <div class="row justify-content-center">
 	<p>
@@ -44,6 +38,9 @@
 	</p>
     </div>
     <div class="row justify-content-center">
+        <p>Tags: {{ genres|join:', '}}</p>
+    </div>
+    <div class="row justify-content-center">
 	<p>
 	<a class="btn btn-danger custom-btn-danger-xs" href="report" role="button">Report Poem</a>
 	</p>
@@ -51,5 +48,6 @@
     <div class="row justify-content-center">
 	<footer>Copyright Alice, Mike, Nico, Jett 2020</footer>
     </div>
+    <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

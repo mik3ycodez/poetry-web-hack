@@ -7,47 +7,38 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
   <!-- Add additional CSS in static file -->
    {% load static %}
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
 </head>
 <body>
   <div class="container-fluid">
-    <div class="row justify-content-center" style="align-items: flex-start;">
-	<img src="{% static 'images/logo.png' %}" class="img-fluid" alt="Poetr">
-    </div>
     <div class="row justify-content-center">
-	<h1>Poetr</h1>
+        <h1>Poetr</h1>
+    </div>
+    <div class="row justify-content-center" style="align-items: flex-start;">
+	<img src="{% static 'images/logodm.png' %}" class="img-fluid" alt="Poetr">
     </div>
     <div class="row justify-content-center">
 	<p class="reportP">All reports will be reviewed and investigated by our team. For additional information, please refer to our policies.</p>
     </div>
     <div class="row justify-content-center">
-	<form action="" method="post">
+	<form action="" method="post" class="report dropdown" style="display: inline; color: #eee;">
     		{% csrf_token %}
-		<table>
-    			{{ form.as_table }}
-		</table>	
+        <div>{{form.type.label_tag}}</div>
+        <div>{{form.type}}</div>
+        <div>{{form.reportText.label_tag}}</div>
+        <div>{{form.reportText}}</div>
+
 	</form>
     </div>
     <div class="row justify-content-center">
-<<<<<<< HEAD
 	<button type="submit" class="btn btn-success" value="Submit">Submit</button
     </div>
     <div class="row justify-content-center">
     </div>
 </div>
 
-  <footer>
-  <ul>
-  <p>&copy; 2020 Copyright Alice, Mike, Nico, Jett</p>
-  </ul>
-  </footer>
-   
-  
-=======
-	<footer> Copyright Alice, Mike, Nico, Jett 2020 </footer>
-    </div>
-  </div>
->>>>>>> f9dbccdfdd79fccbc2dfa95978f0770981f412ba
+  <footer>&copy; 2020 Copyright Alice, Mike, Nico, Jett</footer>
+
 </body>
 </html>
