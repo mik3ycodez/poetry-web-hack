@@ -10,7 +10,7 @@ class NewPoemForm(forms.Form):
 
     def clean_genres(self):
         data = self.cleaned_data['genres']
-        return data.replace(' ', '').split(',')
+        return data
 
 
 class ReportForm(forms.Form):

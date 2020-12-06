@@ -43,7 +43,10 @@ def NewPoem(request, pk):
                         text=form.cleaned_data['text'],
                         author=form.cleaned_data['author'],
                         )
-            poem.genres.add(*genres)
+            poem.save()
+
+            for genre in genres:
+                poem.genres.add(genre)
 
             OldLinks = OldPoem.links.all()
 
@@ -57,12 +60,12 @@ def NewPoem(request, pk):
 
             return redirect(poem)
 
-        else:
-            form = NewPoemForm()
+    else:
+        form = NewPoemForm()
 
-        context = {
-            'form': form,
-        }
+    context = {
+        'form': form,
+    }
 
     return render(request, 'library/newPoem.html', context)
 
