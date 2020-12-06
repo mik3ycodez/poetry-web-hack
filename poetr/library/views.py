@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic.detail import DetailView
-from .models import Genre, Poem
-from .forms import NewPoemForm
+
+from .forms import NewPoemForm, ReportForm
+from .models import Genre, Poem, Report
 
 
 def Random(request):
@@ -70,4 +71,28 @@ def NewPoem(request, pk):
 
     return render(request, 'library/newPoem.html', context)
 
-# Create your views here.
+
+def NewReport(request, pk):
+    OldReport = get_object_or_404(Report, pk=pk)
+
+    if request.method == "POST":
+        form = ReportForm(request.POST)
+
+        if form.is_valid():
+            report = Report(
+                text=form.cleaned_data['title'],
+                type=form.cleaned_data['type'],
+                poem=None  # TODO: pass poem into new report
+            )
+
+            report.save()
+            return redirect(report)
+
+    else:
+        form = NewPoemForm()
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'library/newReport.html', context)
