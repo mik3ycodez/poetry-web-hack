@@ -88,7 +88,12 @@ img {
 }
 
 #id_type_label {
-    color: #eee
+    color: #eee;
+}
+
+#id_type {
+    border: 1px solid #2e6da4;
+    border-radius: 5px;
 }
 
 #id_reportText {
